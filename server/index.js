@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import databaseConnection from "./config/database.js";
 import cookieParser from "cookie-parser";
 import userRoute from "./routes/userRoute.js";
+import productRoute from "./routes/productRoute.js";
 
 dotenv.config({
     path: ".env",
@@ -20,6 +21,7 @@ app.use(cookieParser());
 // api
 
 app.use("/api/user", userRoute);
+app.use("/api/product", productRoute);
 
 app.get("/", (req, res) => {
     res.send("API is running...");

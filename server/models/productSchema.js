@@ -24,7 +24,31 @@ const productSchema = new mongoose.Schema({
     category: {
         type: String,
         required: true
-    },    
+    }, 
+    brand: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number,
+        required: true
+    },
+    numReviews: {
+        type: Number,
+        required: true
+    },
+    reviews: {
+        type: Array,
+        required: true
+    },
+    dressStyle: {
+        type: String,
+        required: true
+    },
+    sellCount: {
+        type: Number,
+        required: true
+    }
 }, {timestamps: true});
 
 export const Product = mongoose.model('Product', productSchema);
