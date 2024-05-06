@@ -1,15 +1,10 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Landing from "./components/Landing";
+import Homepage from "./components/Homepage";
 
 function App() {
     return (
       <>
-          <Navbar />
-          <Landing />
-          {/* <div className="flex w-screen h-screen bg-[#f2f0f1]">
-
-          </div> */}
+         <Homepage />
       </>
     );
 }
