@@ -4,7 +4,7 @@ import bg from '../../assets/images/bg.jpg';
 const Category = () => {
     return (
         <>
-            <div className="container-fluid py-10">
+            <div className="container-fluid pt-10">
                 <h1 className='text-center font-black text-5xl py-16 text-slate-600'>THE SHOPCO</h1>
                 <img src={bg} alt="Category" className='blur-[0.6px]' />
                 <div className='flex justify-around bottom-56 relative'>

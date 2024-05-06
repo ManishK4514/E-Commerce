@@ -8,12 +8,12 @@ import produc4 from '../../assets/products/product4.jpg'
 const Products = () => {
     return (
         <>
-            <h1 className='text-center font-black text-5xl py-16 text-slate-600'>Explore the products</h1>
+            <h1 className='text-center font-black text-5xl py-16 text-slate-600'>EXPLORE THE PRODUCTS</h1>
             <div className='container-fluid flex justify-center my-4'>
                 <div class="grid grid-cols-3 gap-4 text-center">
                     <div>
                         <img className='max-h-60 my-2 mx-2' src={produc1} alt="Products" />
-                        <p className="text-lg text-blue-600 ">MILITARY BLUEAIR JORDAN IV</p>
+                        <p className="text-lg text-blue-600">MILITARY BLUEAIR JORDAN IV</p>
                     </div>
                     <div>
                         <img className='max-h-60 my-2 mx-2' src={produc2} alt="Products" />
