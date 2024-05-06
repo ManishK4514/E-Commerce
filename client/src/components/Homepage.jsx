@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './pages/Navbar'
 import Landing from './pages/Landing'
 import Category from './pages/Category'
+import Products from './pages/Products'
 
 const Homepage = () => {
   return (
@@ -9,6 +10,7 @@ const Homepage = () => {
         <Navbar />
         <Landing />
         <Category />
+        <Products />
     </div>
   )
 }
