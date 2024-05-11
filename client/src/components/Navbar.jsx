@@ -5,7 +5,7 @@ import { IoSearchOutline } from "react-icons/io5";
 
 const Navbar = () => {
     return (
-        <nav className='flex flex-row justify-between mx-24 my-4'> 
+        <nav className='flex flex-row justify-between mx-[8%] my-4'> 
             <div className='flex justify-center items-center text-3xl font-extrabold'>
                 SHOP.CO
             </div>

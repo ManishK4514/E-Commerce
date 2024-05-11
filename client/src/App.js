@@ -1,16 +1,16 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Landing from "./components/Landing";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 
 function App() {
     return (
-      <>
-          <Navbar />
-          <Landing />
-          {/* <div className="flex w-screen h-screen bg-[#f2f0f1]">
-
-          </div> */}
-      </>
+        <div className="app">
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                </Routes>
+            </BrowserRouter>
+        </div>
     );
 }
 

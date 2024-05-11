@@ -18,19 +18,19 @@ const Landing = () => {
         <img src={starSmall} alt="" />
       </div>
       <div className='absolute top-5 left-5'>
-        <div className='mx-[70px] mt-[70px] text-7xl w-[600px] font-bold'>
+        <div className='mx-[15%] mt-[70px] text-7xl w-[600px] font-bold'>
           FIND CLOTHES THAT MATCHES YOUR STYLE
         </div>
-        <div className='mx-[70px] mt-[40px] w-[600px] text-md'>
+        <div className='mx-[15%] mt-[40px] w-[600px] text-md'>
           Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.
         </div>
         <div className='flex justify-start'>
-          <div className='mx-[70px] mt-[27px] rounded-full bg-black text-white flex justify-center px-12 py-4'>
+          <div className='mx-[15%] mt-[27px] rounded-full bg-black text-white flex justify-center px-12 py-4'>
             Shop Now
           </div>
         </div>
 
-        <div className='mx-[70px] mt-[50px] flex gap-7'>
+        <div className='mx-[15%] mt-[50px] flex gap-7'>
           <img src={frame2} alt="" srcset="" className='' />
           <img src={line} alt="" srcset="" className='' />
           <img src={frame1} alt="" srcset="" className='' />
