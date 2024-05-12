@@ -6,6 +6,7 @@ import frame3 from "../assets/frame3.svg";
 import line from "../assets/line.svg";
 import starBig from "../assets/starBig.svg";
 import starSmall from "../assets/starSmall.svg";
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -26,7 +27,9 @@ const Landing = () => {
         </div>
         <div className='flex justify-start'>
           <div className='mx-[15%] mt-[27px] rounded-full bg-black text-white flex justify-center px-12 py-4'>
-            Shop Now
+            <Link to={'/shop'}>
+              Shop Now
+            </Link>
           </div>
         </div>
 

@@ -2,19 +2,26 @@ import React from 'react'
 import { BiCart } from "react-icons/bi";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoSearchOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <nav className='flex flex-row justify-between mx-[8%] my-4'> 
+        <nav className='flex flex-row justify-between mx-[8%] my-4'>
             <div className='flex justify-center items-center text-3xl font-extrabold'>
-                SHOP.CO
+                <Link to={'/'}>
+                    SHOP.CO
+                </Link>
             </div>
             <div className='flex justify-center items-center'>
                 <ul className='flex gap-x-[24px] text-lg'>
-                    <li>Shop</li>
+                    <Link to={'/shop'}>
+                        <li>Shop</li>
+                    </Link>
                     <li>On Sale</li>
                     <li>New Arrivals</li>
-                    <li>Brands</li>
+                    <Link to={'/brand/zara'}>
+                        <li>Brands</li>
+                    </Link>
                 </ul>
             </div>
             <div className='flex justify-start items-center bg-[#f0f0f0] w-2/5 h-[48px] rounded-full px-6 gap-4'>
@@ -22,7 +29,9 @@ const Navbar = () => {
                 <input type="text" placeholder='Search for products...' className='bg-transparent px-4 py-2 w-full' />
             </div>
             <div className='flex gap-4 justify-center items-center'>
-                <BiCart className='w-[24px] h-[24px]' />
+                <Link to={'/cart'}>
+                    <BiCart className='w-[24px] h-[24px]' />
+                </Link>
                 <FaRegUserCircle className='w-[24px] h-[24px]' />
             </div>
         </nav>
