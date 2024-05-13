@@ -52,7 +52,7 @@ const Index = () => {
                 productDescription={
                     product.description || "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque."
                 }
-                colors={["#800080", "#800080", "#800080", "#800080"]}
+                colors={["#800080", "#FF0000", "#0000FF", "#008000"]}
                 sizes={["Small-S", "Medium-M", "Large-L", "Extra Large-XL"]}
                 selectedColor={selectedColor}
                 setSelectedColor={setSelectedColor}
@@ -66,7 +66,6 @@ const Index = () => {
             <div className="grid grid-cols-2 gap-4 mx-[8%] py-10">
                 {product.reviews?.map((review) => (
                     <Review username={review.name} reviewDescription={review.comment} />
-
                 ))}
             </div>
             <div className='w-full'>

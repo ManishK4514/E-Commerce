@@ -4,6 +4,7 @@ import databaseConnection from "./config/database.js";
 import cookieParser from "cookie-parser";
 import userRoute from "./routes/userRoute.js";
 import productRoute from "./routes/productRoute.js";
+import paymentRoute from "./routes/payment.js";
 
 dotenv.config({
     path: ".env",
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 app.use("/api/user", userRoute);
 app.use("/api/product", productRoute);
+app.use("/api/payment", paymentRoute);
 
 app.get("/", (req, res) => {
     res.send("API is running...");
