@@ -59,6 +59,7 @@ const Summary = ({ subtotal }) => {
             const response = await fetch(orderUrl, requestOptions);
             const responseData = await response.json();
             const { data } = responseData;
+            console.log(data);
             if(data) initPayment(data);
         } catch (error) {
             console.error('Error:', error);
@@ -90,9 +91,9 @@ const Summary = ({ subtotal }) => {
                     <p>Total</p>
                 </div>
                 <div>
-                    <p>${subtotal}</p>
+                    <p>${subtotal.toFixed(2)}</p>
                     <p>$50</p>
-                    <p>${subtotal + 50}</p>
+                    <p>${(subtotal + 50).toFixed(2)}</p>
                 </div>
             </div>
             <div>

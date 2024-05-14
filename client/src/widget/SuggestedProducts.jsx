@@ -13,7 +13,7 @@ const SuggestedProducts = ({ title, products }) => {
                 {
                     products.map((product, index) => (
                         <div key={index} className='flex flex-col gap-3'>
-                            <Link to={`/product/${product._id}`} onClick={() => { window.location.href = `/product/${product._id}` }}>
+                            <Link to={`/product/${product._id}`}>
                                 <div>
                                     <img src={product.imageUrls[0] || productImg1} alt="" srcset="" className='rounded-2xl h-[298px]' />
                                 </div>

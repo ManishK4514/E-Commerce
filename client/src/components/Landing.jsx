@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
-    <div className="flex bg-[#f2f0f1] items-end justify-end w-full relative" >
-      <img src={rectangle} alt="" srcset="" />
+    <div className="flex bg-[#f2f0f1] items-end justify-end w-full relative h-screen" >
+      <img src={rectangle} alt="" srcset=""/>
       <div className='absolute top-[20%] right-24'>
         <img src={starBig} alt="" />
       </div>
@@ -33,13 +33,23 @@ const Landing = () => {
           </div>
         </div>
 
-        <div className='mx-[15%] mt-[50px] flex gap-7'>
-          <img src={frame2} alt="" srcset="" className='' />
-          <img src={line} alt="" srcset="" className='' />
-          <img src={frame1} alt="" srcset="" className='' />
-          <img src={line} alt="" srcset="" className='' />
-          <img src={frame3} alt="" srcset="" className='' />
+        <div className='mx-[15%] mt-[50px] flex gap-11'>
+          <div className='flex flex-col gap-2'>
+            <p className='text-5xl font-semibold'>200+</p>
+            <p>International Brands</p>
+          </div>
+          <img src={line} alt="" />
+          <div className='flex flex-col gap-2'>
+            <p className='text-5xl font-semibold'>2,000+</p>
+            <p>High-Quality Products</p>
+          </div>
+          <img src={line} alt=""  />
+          <div className='flex flex-col gap-2'>
+            <p className='text-5xl font-semibold'>30,000+</p>
+            <p>Happy Customers</p>
+          </div>
         </div>
+
 
       </div>
 

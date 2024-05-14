@@ -6,6 +6,7 @@ import ProductDetails from "../../components/ProductDetails";
 import Review from "../../widget/Review";
 import SuggestedProducts from "../../widget/SuggestedProducts";
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const Index = () => {
     const [selectedColor, setSelectedColor] = useState(0);
@@ -15,10 +16,14 @@ const Index = () => {
     const [product, setProduct] = useState({});
     const [products, setProducts] = useState([]);
 
+    const { productId } = useParams();
+
     useEffect(() => {
+        window.scrollTo(0, 0);
+        
         const fetchProduct = async () => {
             try {
-                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product/${window.location.pathname.split("/")[2]}`);
+                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product/${productId}`);
                 const data = await response.json();
                 setProduct(data);
             } catch (error) {
@@ -39,7 +44,7 @@ const Index = () => {
         };
 
         fetchAllProducts();
-    }, []);
+    }, [productId]);
 
     return (
         <>

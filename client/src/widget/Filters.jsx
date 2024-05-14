@@ -51,12 +51,12 @@ const Filters = () => {
                 </div>
                 <div className='grid grid-cols-5 gap-4'>
                     <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
+                    <button className='rounded-full w-10 h-10 mr-2 bg-[#ba3b2d]'></button>
+                    <button className='rounded-full w-10 h-10 mr-2 bg-[#382c93]'></button>
+                    <button className='rounded-full w-10 h-10 mr-2 bg-[#eaed4d]'></button>
+                    <button className='rounded-full w-10 h-10 mr-2 bg-[#c938c4]'></button>
+                    <button className='rounded-full w-10 h-10 mr-2 bg-[#53eef4]'></button>
+                    <button className='rounded-full w-10 h-10 mr-2 bg-[#d97e4e]'></button>
                 </div>
             </div>
             <hr />

@@ -9,11 +9,17 @@ import { Link, useParams } from "react-router-dom";
 
 const Index = () => {
     const [products, setProducts] = useState([]);
-    const url = window.location.pathname;
-    const parts = url.split('/');
-    const category = parts[parts.length - 1];
+    const { categoryName } = useParams();
+    const [category, setCategory] = useState(categoryName);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+        setCategory(categoryName);
+    }, [categoryName]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+
         const fetchAllProducts = async () => {
             try {
                 const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product`);

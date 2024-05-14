@@ -14,6 +14,8 @@ const Index = () => {
     const brand = parts[parts.length - 1];
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+        
         const fetchAllProducts = async () => {
             try {
                 const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product/brand/${brand}`);
