@@ -41,11 +41,11 @@ const Summary = ({ subtotal }) => {
     };
 
     const handlePayment = async () => {
-        console.log("Payment Initiated");
+        console.log("Payment Initiated: ", (subtotal + 50));
         const orderUrl = `${process.env.REACT_APP_BASE_URL}/api/payment/orders`;
 
         const data = {
-            amount: '250',
+            amount: ((subtotal + 50) * 100),
             currency: 'USD'
         };
 
