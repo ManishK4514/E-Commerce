@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import userRoute from "./routes/userRoute.js";
 import productRoute from "./routes/productRoute.js";
 import paymentRoute from "./routes/payment.js";
+import cors from "cors";
 
 dotenv.config({
     path: ".env",
@@ -18,6 +19,7 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 // api
 
