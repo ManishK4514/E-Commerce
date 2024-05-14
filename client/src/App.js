@@ -6,6 +6,7 @@ import CategoryPage from "./pages/CategoryPage";
 import BrandPage from "./pages/BrandPage";
 import CartPage from "./pages/CartPage";
 import ShopPage from "./pages/ShopPage";
+import SuggestedPage from "./pages/SuggestedPage";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/brand/:brandName" element={<BrandPage />} />
                     <Route path="/cart" element={<CartPage />} />
                     <Route path="/shop" element={<ShopPage />} />
+                    <Route path="/:categoryName" element={<SuggestedPage />} />
                 </Routes>
             </BrowserRouter>
         </div>

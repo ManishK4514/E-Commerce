@@ -17,8 +17,12 @@ const Navbar = () => {
                     <Link to={'/shop'}>
                         <li>Shop</li>
                     </Link>
-                    <li>On Sale</li>
-                    <li>New Arrivals</li>
+                    <Link to={'/sale'}>
+                        <li>On Sale</li>
+                    </Link>
+                    <Link to={'/new-arrival'}>
+                        <li>New Arrivals</li>
+                    </Link>
                     <Link to={'/brand/zara'}>
                         <li>Brands</li>
                     </Link>

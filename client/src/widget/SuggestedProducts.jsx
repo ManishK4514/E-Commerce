@@ -13,7 +13,7 @@ const SuggestedProducts = ({ title, products }) => {
                 {
                     products.map((product, index) => (
                         <div key={index} className='flex flex-col gap-3'>
-                            <Link to={`/product/${product._id}`}>
+                            <Link to={`/product/${product._id}`} onClick={() => { window.location.href = `/product/${product._id}` }}>
                                 <div>
                                     <img src={product.imageUrls[0] || productImg1} alt="" srcset="" className='rounded-2xl h-[298px]' />
                                 </div>
@@ -24,6 +24,7 @@ const SuggestedProducts = ({ title, products }) => {
                                     {`$${product.price}`}
                                 </div>
                             </Link>
+
                         </div>
                     ))
                 }
@@ -31,9 +32,11 @@ const SuggestedProducts = ({ title, products }) => {
 
             <div className='w-full'>
                 <div className='flex justify-center '>
-                    <div className='border-2 rounded-full  px-16 py-4'>
-                        View All
-                    </div>
+                    <Link to={title === 'New Arrivals' ? '/new-arrivals' : title === 'Top Sellings' ? '/top-sellings' : '/suggested'}>
+                        <div className='border-2 rounded-full  px-16 py-4'>
+                            View All
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
