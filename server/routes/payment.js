@@ -17,8 +17,6 @@ router.post("/orders", (req, res) => {
             receipt: crypto.randomBytes(10).toString("hex"),
         };
 
-        console.log("Orders: ", instance, options);
-
         instance.orders.create(options, (err, order) => {
             if (err) {
                 return res.status(500).send("Internal Server Error");

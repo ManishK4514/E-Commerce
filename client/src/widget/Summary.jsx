@@ -43,11 +43,26 @@ const Summary = ({ subtotal }) => {
     const handlePayment = async () => {
         console.log("Payment Initiated");
         const orderUrl = `${process.env.REACT_APP_BASE_URL}/api/payment/orders`;
-        const response = await fetch(orderUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ amount: subtotal + 50, currency: "USD" }) });
-        const { data } = await response.json();
 
-        console.log("Data Found: ", data);
-        if (data) initPayment(data);
+        const data = {
+            amount: '250',
+            currency: 'USD'
+        };
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        };
+
+        try {
+            const response = await fetch(orderUrl, requestOptions);
+            const responseData = await response.json();
+            const { data } = responseData;
+            if(data) initPayment(data);
+        } catch (error) {
+            console.error('Error:', error);
+        }
     }
 
     useEffect(() => {
