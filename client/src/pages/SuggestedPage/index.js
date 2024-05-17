@@ -9,6 +9,9 @@ import { Link, useParams } from "react-router-dom";
 
 const Index = () => {
     const [products, setProducts] = useState([]);
+    const [newArrivalProducts, setNewArrivalProducts] = useState([]);
+    const [topSellingProducts, setTopSellingProducts] = useState([]);
+    
     const { categoryName } = useParams();
     const [category, setCategory] = useState(categoryName);
 
@@ -31,6 +34,30 @@ const Index = () => {
         };
 
         fetchAllProducts();
+
+        const fetchNewArrivalProducts = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product/get-products-by/newarrivals`);
+                const data = await response.json();
+                setNewArrivalProducts(data);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        };
+
+        fetchNewArrivalProducts();
+
+        const fetchTopSellingProducts = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product/get-products-by/most-sell-count`);
+                const data = await response.json();
+                setTopSellingProducts(data);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        };
+
+        fetchTopSellingProducts();
     }, []);
 
     return (
@@ -42,16 +69,22 @@ const Index = () => {
                 </div>
                 <div className="flex flex-col w-2/3 gap-4">
                     <div className="flex justify-start items-center text-3xl font-bold">
-                        {category || 'Casual'}
+                        {category.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') || 'Casual'}
                     </div>
                     <div className="grid grid-cols-3 gap-4">
-                        {
-                            products.map((product) => (
-                                <Link to={`/product/${product._id}`}>
-                                    <Product key={product._id} title={product.name} price={product.price} thumbnail={product.imageUrls[0]} />
-                                </Link>
-                            ))
-                        }
+                        {category === 'new-arrivals' ? newArrivalProducts.map((product) => (
+                            <Link to={`/product/${product._id}`}>
+                                <Product key={product._id} title={product.name} price={product.price} thumbnail={product.imageUrls[0]} />
+                            </Link>
+                        )) : category === 'top-sellings' ? topSellingProducts.map((product) => (
+                            <Link to={`/product/${product._id}`}>
+                                <Product key={product._id} title={product.name} price={product.price} thumbnail={product.imageUrls[0]} />
+                            </Link>
+                        )) : products.map((product) => (
+                            <Link to={`/product/${product._id}`}>
+                                <Product key={product._id} title={product.name} price={product.price} thumbnail={product.imageUrls[0]} />
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>

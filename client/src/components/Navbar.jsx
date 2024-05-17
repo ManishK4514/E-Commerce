@@ -20,7 +20,7 @@ const Navbar = () => {
                     <Link to={'/sale'}>
                         <li>On Sale</li>
                     </Link>
-                    <Link to={'/new-arrival'}>
+                    <Link to={'/new-arrivals'}>
                         <li>New Arrivals</li>
                     </Link>
                     <Link to={'/brand/zara'}>

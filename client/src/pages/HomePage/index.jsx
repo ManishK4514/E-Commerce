@@ -15,6 +15,8 @@ import { useState, useEffect } from "react";
 
 const Index = () => {
     const [products, setProducts] = useState([]);
+    const [newArrivalsProducts, setNewArrivalsProducts] = useState([]);
+    const [topSellingProducts, setTopSellingProducts] = useState([]);
 
     useEffect(() => {
         const fetchAllProducts = async () => {
@@ -28,6 +30,30 @@ const Index = () => {
         };
 
         fetchAllProducts();
+
+        const fetchNewArrivalsProducts = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product/get-products-by/newarrivals`);
+                const data = await response.json();
+                setNewArrivalsProducts(data);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        };
+
+        fetchNewArrivalsProducts();
+
+        const fetchTopSellingProducts = async () => {
+            try {
+                const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/product/get-products-by/most-sell-count`);
+                const data = await response.json();
+                setTopSellingProducts(data);
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        }
+
+        fetchTopSellingProducts();
     }, []);
 
     return (
@@ -35,9 +61,9 @@ const Index = () => {
             <Navbar />
             <Landing />
             <Brands />
-            <SuggestedProducts title={"New Arrivals"} products={products} />
+            <SuggestedProducts title={"New Arrivals"} products={newArrivalsProducts} />
             <Divider />
-            <SuggestedProducts title={"Top Sellings"} products={products} />
+            <SuggestedProducts title={"Top Sellings"} products={topSellingProducts} />
             <DressStyle />
             <HappyReviews />
             <NewsLetter />

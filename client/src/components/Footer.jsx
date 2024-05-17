@@ -7,7 +7,7 @@ const Footer = () => {
             <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div class="md:flex md:justify-between">
                     <div class="flex flex-col gap-8 mb-6 md:mb-0">
-                        <a href="https://flowbite.com/" class="flex items-center">
+                        <a href="#" class="flex items-center">
                             <span class="self-center text-4xl font-bold whitespace-nowrap">SHOP.CO</span>
                         </a>
                         <p className='max-w-[50%] text-gray-500'>
@@ -45,16 +45,16 @@ const Footer = () => {
                             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Company</h2>
                             <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                 <li class="mb-4">
-                                    <a href="https://flowbite.com/" class="hover:underline">About</a>
+                                    <a href="#" class="hover:underline">About</a>
                                 </li>
                                 <li className='mb-4'>
-                                    <a href="https://tailwindcss.com/" class="hover:underline">Features</a>
+                                    <a href="#" class="hover:underline">Features</a>
                                 </li>
                                 <li className='mb-4'>
-                                    <a href="https://tailwindcss.com/" class="hover:underline">Works</a>
+                                    <a href="#" class="hover:underline">Works</a>
                                 </li>
                                 <li>
-                                    <a href="https://tailwindcss.com/" class="hover:underline">Career</a>
+                                    <a href="#" class="hover:underline">Career</a>
                                 </li>
                             </ul>
                         </div>
@@ -62,16 +62,16 @@ const Footer = () => {
                             <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Help</h2>
                             <ul class="text-gray-500 dark:text-gray-400 font-medium">
                                 <li class="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Customer Support</a>
+                                    <a href="#" class="hover:underline ">Customer Support</a>
                                 </li>
                                 <li className='mb-4'>
-                                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Delivery Details</a>
+                                    <a href="#" class="hover:underline">Delivery Details</a>
                                 </li>
                                 <li class="mb-4">
-                                    <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Terms & Conditions</a>
+                                    <a href="#" class="hover:underline ">Terms & Conditions</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Privacy Policy</a>
+                                    <a href="#" class="hover:underline">Privacy Policy</a>
                                 </li>
                             </ul>
                         </div>
@@ -113,7 +113,7 @@ const Footer = () => {
                 </div>
                 <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-300 lg:my-8" />
                 <div class="sm:flex sm:items-center sm:justify-between">
-                    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="https://flowbite.com/" class="hover:underline">SHOP.CO™</a>. All Rights Reserved.
+                    <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="hover:underline">SHOP.CO™</a>. All Rights Reserved.
                     </span>
                     <div class="flex mt-4 sm:justify-center sm:mt-0">
                         <img src={paymentgateway} alt="" srcset="" />

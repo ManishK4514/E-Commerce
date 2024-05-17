@@ -9,10 +9,10 @@ const SuggestedProducts = ({ title, products }) => {
                 {title.toUpperCase()}
             </div>
 
-            <div className='grid grid-cols-3'>
+            <div className='grid grid-cols-4'>
                 {
-                    products.map((product, index) => (
-                        <div key={index} className='flex flex-col gap-3'>
+                    products.slice(0, 4).map((product, index) => (
+                        <div key={index} className='flex flex-col gap-3 overflow-hidden'>
                             <Link to={`/product/${product._id}`}>
                                 <div>
                                     <img src={product.imageUrls[0] || productImg1} alt="" srcset="" className='rounded-2xl h-[298px]' />

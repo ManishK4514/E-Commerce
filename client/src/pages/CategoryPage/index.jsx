@@ -40,7 +40,7 @@ const Index = () => {
                 </div>
                 <div className="flex flex-col w-2/3 gap-4">
                     <div className="flex justify-start items-center text-3xl font-bold">
-                        {category || 'Casual'}
+                        {category.charAt(0).toUpperCase() + category.slice(1) || 'Casual'}
                     </div>
                     <div className="grid grid-cols-3 gap-4">
                         {
