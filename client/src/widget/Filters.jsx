@@ -9,32 +9,31 @@ const Filters = () => {
         console.log(value);
     }
 
+    const colors = ["#00C12B", "#ba3b2d", "#382c93", "#eaed4d", "#c938c4", "#53eef4", "#d97e4e"];
+    const dressStyles = ["Casual", "Formal", "Party", "Gym"];
+    const dressType = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];
+    const [selectedColor, setSelectedColor] = useState(0);
+    const [selectedSize, setSelectedSize] = useState(0);
+    const [selectedDressStyle, setSelectedDressStyle] = useState(null);
+    const [selectedDressType, setSelectedDressType] = useState(null);
+
+
     return (
         <div className='flex flex-col border-2 rounded-3xl p-6 gap-6'>
             <div className='text-lg font-bold'>Filters</div>
             <hr />
             <div className='flex flex-col gap-4'>
                 <div className='flex flex-col gap-3'>
-                    <div className='flex justify-between'>
-                        <p className='text-[#]'>T-shirts</p>
-                        <img src={nextIcon} alt="" srcset="" />
-                    </div>
-                    <div className='flex justify-between'>
-                        <p>Shorts</p>
-                        <img src={nextIcon} alt="" srcset="" />
-                    </div>
-                    <div className='flex justify-between'>
-                        <p>Shirts</p>
-                        <img src={nextIcon} alt="" srcset="" />
-                    </div>
-                    <div className='flex justify-between'>
-                        <p>Hoodie</p>
-                        <img src={nextIcon} alt="" srcset="" />
-                    </div>
-                    <div className='flex justify-between'>
-                        <p>Jeans</p>
-                        <img src={nextIcon} alt="" srcset="" />
-                    </div>
+                    {
+                        dressType.map((type, index) => (
+                            <div className={`flex justify-between p-2 cursor-pointer ${selectedDressType === index ? 'border-2 rounded-xl' : ''}`} key={index} onClick={() => {
+                                setSelectedDressType(index);
+                            }}>
+                                <p>{type}</p>
+                                <img src={nextIcon} alt="" srcset="" />
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
             <hr />
@@ -42,7 +41,7 @@ const Filters = () => {
                 <div className='font-bold text-lg'>
                     Price
                 </div>
-                <RangeSlider onChange={(value) => sliderValueChanged(value)}/>
+                <RangeSlider />
             </div>
             <hr />
             <div className='flex flex-col gap-2'>
@@ -50,13 +49,12 @@ const Filters = () => {
                     Colors
                 </div>
                 <div className='grid grid-cols-5 gap-4'>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#00C12B]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#ba3b2d]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#382c93]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#eaed4d]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#c938c4]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#53eef4]'></button>
-                    <button className='rounded-full w-10 h-10 mr-2 bg-[#d97e4e]'></button>
+                    {
+                        colors.map((color, index) => (
+                            <button className={`rounded-full cursor-pointer ${selectedColor === index ? 'border-2 border-black w-12 h-12' : 'w-11 h-11'}`} style={{ backgroundColor: `${color}` }} key={index} onClick={() => { setSelectedColor(index) }}>
+                            </button>
+                        ))
+                    }
                 </div>
             </div>
             <hr />
@@ -67,7 +65,9 @@ const Filters = () => {
                 <div className='grid grid-cols-2 gap-4'>
                     {
                         sizes.map((size, index) => (
-                            <button className='bg-[#F0F0F0] rounded-full  px-5 py-3' key={index}>{size}</button>
+                            <button className={`bg-[#F0F0F0] rounded-full  px-5 py-3 cursor-pointer ${selectedSize === index ? 'bg-black text-white' : ''}`} key={index} onClick={() => {
+                                setSelectedSize(index)
+                            }}>{size}</button>
                         ))
                     }
                 </div>
@@ -79,25 +79,22 @@ const Filters = () => {
                 </div>
                 <div className='flex flex-col gap-4'>
                     <div className='flex flex-col gap-3'>
-                        <div className='flex justify-between'>
-                            <p className='text-[#]'>Casual</p>
-                            <img src={nextIcon} alt="" srcset="" />
-                        </div>
-                        <div className='flex justify-between'>
-                            <p>Formal</p>
-                            <img src={nextIcon} alt="" srcset="" />
-                        </div>
-                        <div className='flex justify-between'>
-                            <p>Party</p>
-                            <img src={nextIcon} alt="" srcset="" />
-                        </div>
-                        <div className='flex justify-between'>
-                            <p>Gym</p>
-                            <img src={nextIcon} alt="" srcset="" />
-                        </div>
+                        {
+                            dressStyles.map((style, index) => (
+                                <div className={`flex justify-between p-2 cursor-pointer ${selectedDressStyle === index ? 'border-2 rounded-xl' : ''}`} key={index} onClick={() => {
+                                    setSelectedDressStyle(index);
+                                }}>
+                                    <p>{style}</p>
+                                    <img src={nextIcon} alt="" srcset="" />
+                                </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>
+
+            <button className={`bg-[#F0F0F0] rounded-full  px-5 py-3 cursor-pointer`} onClick={() => {                
+            }}>Apply Filters</button>
         </div>
     )
 }

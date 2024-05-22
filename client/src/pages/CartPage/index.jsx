@@ -5,9 +5,11 @@ import Footer from '../../components/Footer'
 import CartProduct from '../../widget/CartProduct'
 import Summary from '../../widget/Summary'
 import { useState } from 'react'
+import Loader from '../../widget/Loader'
 
 const Index = () => {
     const [quantity, setQuantity] = useState(1);
+    const [isLoading, setIsLoading] = useState(true);
     const [existingCartItems, setExistingCartItems] = useState(JSON.parse(localStorage.getItem('cartItems')) || []); 
 
     const calculateSubTotalPrice = existingCartItems.reduce((acc, item) => acc + item.productPrice * item.quantity, 0);

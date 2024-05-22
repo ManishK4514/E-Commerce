@@ -1,24 +1,28 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import MultiRangeSlider from "multi-range-slider-react";
 
-const RangeSlider = ({ onChange }) => {
-
-    const [slider, setSlider] = useState({
-        max: 100,
-        min: 0,
-        value: 0,
-        label: ''
-    });
-
-    const onSlide = () => {
-        onChange(slider.value);
-    }
+const RangeSlider = () => {
+    const [minValue, set_minValue] = useState(25);
+    const [maxValue, set_maxValue] = useState(75);
+    const handleInput = (e) => {
+        set_minValue(e.minValue);
+        set_maxValue(e.maxValue);
+    };
 
     return (
-        <div className="range-slider">
-            <p>{slider.label}</p>
-            <input type="range" min={slider.min} max={slider.max} value={slider.value}
-                onChange={() => onSlide()} className="slider" id="myRange"></input>
+        <div className="App">
+            <MultiRangeSlider
+                min={0}
+                max={100}
+                step={5}
+                minValue={minValue}
+                maxValue={maxValue}
+                onInput={(e) => {
+                    handleInput(e);
+                }}
+            />
         </div>
     );
-}
+};
+
 export default RangeSlider;
