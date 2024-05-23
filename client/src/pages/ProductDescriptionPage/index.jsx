@@ -86,7 +86,7 @@ const Index = () => {
                                 </div>
                             </div>
                         </div>
-                        <SuggestedProducts title={"You might also like"} products={products} />
+                        <SuggestedProducts title={"You might also like"} products={products} setIsLoading={setIsLoading} productId={productId} />
                         <NewsLetter />
                         <Footer />
                     </>

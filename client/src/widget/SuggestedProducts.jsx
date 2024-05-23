@@ -2,7 +2,7 @@ import React from 'react'
 import productImg1 from "../assets/productImg1.svg";
 import { Link } from 'react-router-dom';
 
-const SuggestedProducts = ({ title, products }) => {
+const SuggestedProducts = ({ title, products, setIsLoading, productId }) => {  
     return (
         <div className='flex flex-col mx-[8%] gap-16 my-12 '>
             <div className='flex justify-center items-center font-bold text-6xl'>
@@ -13,7 +13,11 @@ const SuggestedProducts = ({ title, products }) => {
                 {
                     products.slice(0, 4).map((product, index) => (
                         <div key={index} className='flex flex-col gap-3 overflow-hidden'>
-                            <Link to={`/product/${product._id}`}>
+                            <Link to={`/product/${product._id}`} onClick={()=>{
+                                if(productId !== product._id){
+                                    setIsLoading(true);
+                                }
+                            }}>
                                 <div>
                                     <img src={product.imageUrls[0] || productImg1} alt="" srcset="" className='rounded-2xl h-[298px]' />
                                 </div>

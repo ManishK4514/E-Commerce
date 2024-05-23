@@ -1,6 +1,6 @@
 import express from 'express';
 import isAuthenticated from '../config/auth.js';
-import { CreateProduct, getProducts, searchProducts, getProductById, updateProduct, deleteProduct, getProductsByCategory, getProductsByBrand, getProductsByDressStyle, getProductsByMostSellCount, getProductsByMostRating, getProductsByNewArrivals } from '../controllers/productController.js';
+import { CreateProduct, getProducts, searchProducts, getProductById, updateProduct, deleteProduct, getProductsByCategory, getProductsByBrand, getProductsByDressStyle, getProductsByMostSellCount, getProductsByMostRating, getProductsByNewArrivals, getProductsByFilter } from '../controllers/productController.js';
 
 const router = express.Router();
 
@@ -16,5 +16,6 @@ router.route('/style/:style').get(getProductsByDressStyle);
 router.route('/get-products-by/most-sell-count').get(getProductsByMostSellCount);
 router.route('/most-rating').get(getProductsByMostRating);
 router.route('/get-products-by/newarrivals').get(getProductsByNewArrivals);
+router.route('/get-products-by/filter').post(getProductsByFilter);
 
 export default router;

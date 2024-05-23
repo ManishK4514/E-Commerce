@@ -3,20 +3,11 @@ import { useState } from 'react';
 import nextIcon from '../assets/nextIcon.svg'
 import RangeSlider from './RangeSlider';
 
-const Filters = () => {
-    const sizes = ["Small-S", "Medium-M", "Large-L", "X-Large-XL", "2X-Large-2XL", "3X-Large-3XL"];
-    const sliderValueChanged = (value) => {
-        console.log(value);
-    }
-
+const Filters = ({ dressType, dressStyles, selectedDressStyle, setSelectedDressStyle, selectedDressType, setSelectedDressType, handleApplyFilter, minPrice, maxPrice, setMinPrice, setMaxPrice}) => {
     const colors = ["#00C12B", "#ba3b2d", "#382c93", "#eaed4d", "#c938c4", "#53eef4", "#d97e4e"];
-    const dressStyles = ["Casual", "Formal", "Party", "Gym"];
-    const dressType = ["T-shirts", "Shorts", "Shirts", "Hoodie", "Jeans"];
+    const sizes = ["Small-S", "Medium-M", "Large-L", "X-Large-XL", "2X-Large-2XL", "3X-Large-3XL"]; 
     const [selectedColor, setSelectedColor] = useState(0);
     const [selectedSize, setSelectedSize] = useState(0);
-    const [selectedDressStyle, setSelectedDressStyle] = useState(null);
-    const [selectedDressType, setSelectedDressType] = useState(null);
-
 
     return (
         <div className='flex flex-col border-2 rounded-3xl p-6 gap-6'>
@@ -41,7 +32,12 @@ const Filters = () => {
                 <div className='font-bold text-lg'>
                     Price
                 </div>
-                <RangeSlider />
+                <RangeSlider 
+                    minPrice={minPrice}
+                    maxPrice={maxPrice}
+                    setMinPrice={setMinPrice}
+                    setMaxPrice={setMaxPrice}
+                />
             </div>
             <hr />
             <div className='flex flex-col gap-2'>
@@ -93,8 +89,7 @@ const Filters = () => {
                 </div>
             </div>
 
-            <button className={`bg-[#F0F0F0] rounded-full  px-5 py-3 cursor-pointer`} onClick={() => {                
-            }}>Apply Filters</button>
+            <button className={`bg-[#F0F0F0] rounded-full  px-5 py-3 cursor-pointer`} onClick={handleApplyFilter}>Apply Filters</button>
         </div>
     )
 }

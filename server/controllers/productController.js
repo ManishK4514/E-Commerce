@@ -174,3 +174,18 @@ export const getProductsByNewArrivals = async (req, res) => {
     }
 }
 
+export const getProductsByFilter = async (req, res) => {
+    try {
+        const { dressStyle, dressType, minPrice, maxPrice, brand } = req.body;
+        const query = { price: { $gte: minPrice, $lte: maxPrice } };
+        if (dressStyle) query.dressStyle = dressStyle;
+        if (brand) query.brand = brand;
+        const products = await Product.find(query);
+        res.json(products);       
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server Error" });
+    }
+}
+
