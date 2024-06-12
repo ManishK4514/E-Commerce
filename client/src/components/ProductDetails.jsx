@@ -2,6 +2,7 @@ import React from 'react'
 import star from '../assets/star.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ReactImageMagnify from 'react-image-magnify';
 
 const ProductDetails = ({ images, productTitle, stars, productPrice, productDescription, colors, sizes, selectedColor, setSelectedColor, selectedImage, setSelectedImage, selectedSize, setSelectedSize, quantity, setQuantity }) => {
 
@@ -32,13 +33,40 @@ const ProductDetails = ({ images, productTitle, stars, productPrice, productDesc
       <div className='flex w-1/2 gap-5'>
         <div className='flex flex-col gap-4 '>
           {images.map((image, index) => (
-            <img src={image} alt="" key={index} onClick={() => { setSelectedImage(index) }} className={`w-[152px] h-[167px] rounded-3xl ${selectedImage === index ? 'border-2 border-black' : ''}`} />
+            <img
+              src={image}
+              alt=""
+              key={index}
+              onMouseEnter={() => { setSelectedImage(index) }}
+              className={`w-[152px] h-[167px] rounded-3xl ${selectedImage === index ? 'border-2 border-black' : ''}`}
+            />
           ))}
         </div>
 
-        <div>
+        {/* <div>
           <img src={images[selectedImage]} alt="" srcset="" className='w-[444px] h-[530px]' />
+        </div> */}
+        <div className='w-[444px] h-[530px]'>
+          <ReactImageMagnify
+            {...{
+              smallImage: {
+                alt: 'Wristwatch by Ted Baker London',
+                src: images[selectedImage],
+                isFluidWidth: true,
+              },
+              largeImage: {
+                src: images[selectedImage],
+                width: 1200,
+                height: 1800
+              },
+              enlargedImageContainerDimensions: {
+                width: '200%',
+                height: '100%'
+              }
+            }}
+          />
         </div>
+
 
       </div>
       <div className='flex flex-col w-1/2 gap-4'>
@@ -60,10 +88,13 @@ const ProductDetails = ({ images, productTitle, stars, productPrice, productDesc
           <p>Select Colors</p>
           <div className='flex gap-4'>
             {colors.map((color, index) => (
-              <button className={`rounded-full ${selectedColor === index ? 'border-2 border-black' : ''}`} key={index} onClick={() => { setSelectedColor(index) }}>
+              <button
+                className={`rounded-full ${selectedColor === index ? 'border-2 border-black' : ''}`}
+                key={index}
+                onClick={() => { setSelectedColor(index) }}
+              >
                 <div className={`w-6 h-6 rounded-full`} style={{ backgroundColor: `${color}` }}></div>
               </button>
-
             ))}
           </div>
         </div>
@@ -72,9 +103,15 @@ const ProductDetails = ({ images, productTitle, stars, productPrice, productDesc
           <p>Select Size</p>
           <div className='flex gap-4'>
             {sizes.map((size, index) => (
-              <button className={`bg-[#F0F0F0] rounded-full  px-5 py-3 ${selectedSize === index ? 'bg-black text-white' : ''}`} key={index} onClick={() => {
-                setSelectedSize(index)
-              }}>{size}</button>
+              <button
+                className={`bg-[#F0F0F0] rounded-full  px-5 py-3 ${selectedSize === index ? 'bg-black text-white' : ''}`}
+                key={index}
+                onClick={() => {
+                  setSelectedSize(index)
+                }}
+              >
+                {size}
+              </button>
             ))}
           </div>
         </div>
